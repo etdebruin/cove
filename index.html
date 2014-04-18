@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="//cdn.monkid.com/1/monk.id.min.js"></script>
 </head>
 <body>
   <script type="text/x-handlebars">
@@ -23,6 +24,8 @@
     </ul>
   </script>
 
+  <div id="signInButton"></div>
+
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.5.0.js"></script>
@@ -32,7 +35,25 @@
 
   <script src="bower_components/ember-addons.bs_for_ember/dist/js/bs-core.min.js"></script>
 
+  <script>
+  window.monkIdReady = function () {
+  Monk.Id.init({
+    appId: '99d75961-55e9-4a0d-b688-a38e106b2aba',
+    signInButton: document.getElementById('signInButton')
+  });
 
+  // Sign the user in automatically if they're already signed into Monk ID.
+  Monk.Id.on(Monk.Id.EVENT.AUTHENTICATED, function (user, payload) {
+    // Proceed with your app specific sign in logic (redirect, form submit) if
+    // the user is already signed in.
+  });
 
+  // Or, sign the user in only if they click the "Sign in with Monk ID" button.
+  Monk.Id.on(Monk.Id.EVENT.SIGN_IN, function (user, payload) {
+    // Proceed with your app specific sign in logic (redirect, form submit) if
+    // the user signs in.
+  });
+};
+  </script>
 </body>
 </html>
