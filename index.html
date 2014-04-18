@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="//cdn.monkid.com/1/monk.id.min.js"></script>
+
+  <script>
+    
+    Monk.Id.init({
+      appId: '99d75961-55e9-4a0d-b688-a38e106b2aba',
+      signInButton: document.getElementById('signInButton')
+    });
+
+    // Or, sign the user in only if they click the "Sign in with Monk ID" button.
+    Monk.Id.on(Monk.Id.EVENT.SIGN_IN, function (user, payload) {
+      // Proceed with your app specific sign in logic (redirect, form submit) if
+      // the user signs in.
+      console.log("Still have to sign in.");
+    });
+  
+  </script>
+
+
 </head>
 <body>
   <script type="text/x-handlebars">
@@ -33,38 +53,6 @@
   <script src="tests/runner.js"></script>
 
   <script src="bower_components/ember-addons.bs_for_ember/dist/js/bs-core.min.js"></script>
-
-  <script>
-    window.monkIdReady = function () {
-      Monk.Id.init({
-        appId: '99d75961-55e9-4a0d-b688-a38e106b2aba',
-        signInButton: document.getElementById('signInButton')
-      });
-
-      // Sign the user in automatically if they're already signed into Monk ID.
-      Monk.Id.on(Monk.Id.EVENT.AUTHENTICATED, function (user, payload) {
-        // Proceed with your app specific sign in logic (redirect, form submit) if
-        // the user is already signed in.
-        console.log("Already signed in.");
-      });
-
-      // Or, sign the user in only if they click the "Sign in with Monk ID" button.
-      Monk.Id.on(Monk.Id.EVENT.SIGN_IN, function (user, payload) {
-        // Proceed with your app specific sign in logic (redirect, form submit) if
-        // the user signs in.
-        console.log("Still have to sign in.");
-      });
-    };
-  </script>
-
-  <script>
-    (function (d, t) {
-      var e = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      e.src = '//cdn.monkid.com/1/monk.id.min.js';
-      s.parentNode.insertBefore(e, s);
-    })(document, 'script');
-  </script>
 
 </body>
 
