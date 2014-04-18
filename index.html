@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="//cdn.monkid.com/1/monk.id.min.js"></script>
 </head>
 <body>
   <script type="text/x-handlebars">
@@ -55,5 +54,17 @@
   });
 };
   </script>
+
+  <script>
+    (function (d, t) {
+      var e = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      e.src = '//cdn.monkid.com/1/monk.id.min.js';
+      s.parentNode.insertBefore(e, s);
+    })(document, 'script');
+  </script>
+
 </body>
+
+
 </html>
